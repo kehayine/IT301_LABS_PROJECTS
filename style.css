@@ -29,6 +29,7 @@ h2{
     color: green;
     font-family: Segoe UI Light, sans-serif;
     text-align: center;
+    margin: 10px;
 }
 h3{
     color: purple;
@@ -43,6 +44,16 @@ h3{
         color:blue;
         text-decoration: underline;
         padding: 5px;
+}
+.p1style{
+        font-family: "Edu NSW ACT Cursive", cursive;
+        background-color: lightblue;
+        border-radius: 10px;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        color:black;
+        padding: 10px;
 }
 img {
     display: block;

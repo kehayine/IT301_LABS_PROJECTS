@@ -1,0 +1,66 @@
+body {
+    font-family: sans-serif;
+    margin: 3px;
+    color: black;
+}
+
+h1 {
+    font-size: 28px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 21px;
+    font-style: italic;
+    color: gray;
+    margin-bottom: 17px;
+}
+
+p {
+    font-size: 14px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+
+img {
+    width: 175px;
+    height: auto;
+}
+
+a {
+    color: red;
+}
+
+pre {
+    background-color: lightgray;
+    border: 2px solid gray;
+    border-radius: 4px;
+    width: 440px;
+    padding: 26px 24px;
+    margin-top: 12px;
+    margin-bottom: 14px;
+}
+
+code {
+    color: navy;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+footer p {
+    margin-top: 10px;
+}
+
+.update {
+    font-size: 11px;
+    font-style: italic;
+}
+.node-modules {
+    background-color: lightgray;
+    color: red;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+
+}
