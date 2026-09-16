@@ -10,15 +10,33 @@
         }
         div {
             background-color:lightblue;
+            display: inline-block;
+            width:50px;
+            height:50px;
             padding: 5px;
-            margin: 20px 30px 90px 50px;
+            margin: 5px;
+            border: 3px solid;
+        }
+        #parent {
+            background-color: lightgray;
+            height: 500px;
+            width: 500px;
+            padding-top: 100px;
+            padding-left: 100px;
+            box-sizing: border-box;
+            border-radius: 250px 123px 30px 5px;
+        }
+        #child {
+            background-color: blue;
+            height: 343px;
+            width: 343px;
+            border-radius: 30%;
         }
     </style>
 </head>
 <body>
-    <div>Lorem ipsum dolor sit amet <span>this is a span</span> consectetur adipisicing elit. Quisquam, quod. 
-       
+    <div id="parent">
+        <div id="child"><p style="margin-top: 150px;"><center>hello</center></p></div>
     </div>
-
 </body>
 </html>
