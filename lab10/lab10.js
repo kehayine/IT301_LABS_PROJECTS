@@ -12,7 +12,7 @@ do {
         message = "Negative amounts are not allowed. Please enter a positive bill amount.";
     }
     else if (isNaN(result)) {
-        message = "Invalid input. Please enter a valid number.";
+        message = "Invalid input. Please enter a numeric bill amount.";
     }
 
 } while (result == null || result == "" || isNaN(result) || result <= 0);
