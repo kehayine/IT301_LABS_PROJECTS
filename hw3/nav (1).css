@@ -1,0 +1,37 @@
+/* ====== COLORS.CSS ====== */
+/* Add style for step#2 here*/
+body {
+    background-color: #FFE4E1;
+    color: rgb(0, 0, 0);
+}
+header {
+    background-color: rgb(92, 0, 142);
+    border-bottom: 5px solid pink;
+    color: white;
+}
+main {
+    background-color: #FFE4E1;
+}
+section{
+    background-color: #E8DFF5;
+    border: 3px solid #C3B1E1;
+    border-radius: 5px;
+}
+#midlink{
+    text-decoration: none;
+    font-weight: bold;
+    color: #5A189A;
+}
+footer{
+    background-color: rgb(197, 178, 255);
+    color: #3E1E68;
+    border-radius: 4px;
+}
+footer nav {
+    background-color: #D9AED3;
+    border-radius: 4px;
+}
+footer a {
+        color: purple;
+        font-weight: bold;
+}

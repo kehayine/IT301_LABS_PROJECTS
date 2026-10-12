@@ -1,0 +1,16 @@
+/* ====== FOOTER.CSS ====== */
+/* Add style for step#4 here*/
+footer nav {
+    border-top: 4px solid rgb(121, 81, 143);
+}
+footer nav ul {
+    padding: 0;
+    font-weight: bold;
+    margin: 0;
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-left: 15px;
+}
+footer nav a {
+    color:rgb(48, 48, 146)
+}

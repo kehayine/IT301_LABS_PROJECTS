@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Grid</title>
+
+    <script src="https://kit.fontawesome.com/0c5bdac1be.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+        }
+
+        h1 {
+            text-align: center;
+            color: red;
+            font-weight: normal;
+            margin: 35px 0;
+        }
+
+        .pricing {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 35px;
+            background-color: rgb(57, 0, 57);
+            padding: 25px;
+        }
+
+        .tier {
+            background-color: pink;
+            color: black;
+            width: 275px;
+            padding: 25px;
+            border-radius: 5px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .tier h2 {
+            margin-top: 0;
+            font-size: 23px;
+        }
+
+        .tier ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto 20px;
+            width: 90%;
+        }
+
+        .tier li {
+            padding: 5px 0;
+            border-bottom: 1px solid grey;
+        }
+
+        .tier li:last-child {
+            border-bottom: none;
+        }
+
+        .tier button {
+            margin-top: auto;
+            align-self: center;
+            padding: 10px 12px;
+            background-color: violet;
+            border: 1px solid purple;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .badge {
+            position: absolute;
+            top: -13px;
+            right: -13px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            font-size: 25px;
+        }
+
+        .economy .badge {
+            background-color: green;
+        }
+
+        .preferred .badge {
+            background-color: yellow;
+        }
+
+        .premium .badge {
+            background-color: orange;
+        }
+
+        .phone {
+            position: fixed;
+            right: -52px;
+            bottom: 35px;
+            background-color: yellow;
+            color: black;
+            padding: 12px 45px;
+            transform: rotate(-45deg);
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        @media (max-width: 850px) {
+            .pricing {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="pricing">
+
+        <div class="tier economy">
+            <div class="badge">
+                <i class="fas fa-hand-holding-usd"></i>
+            </div>
+
+            <h2>Economy</h2>
+
+            <ul>
+                <li>Comfortable Seat</li>
+                <li>One free meal</li>
+                <li>Convenient Restroom Location</li>
+                <li>Basic Amenities</li>
+                <li>Standard Luggage</li>
+            </ul>
+
+            <button>Save Money</button>
+        </div>
+
+        <div class="tier preferred">
+            <div class="badge">
+                <i class="fas fa-medal"></i>
+            </div>
+
+            <h2>Preferred</h2>
+
+            <ul>
+                <li>Comfortable Seat</li>
+                <li>One free meal</li>
+                <li>Convenient Restroom Location</li>
+                <li>Basic Amenities</li>
+                <li>Standard Luggage</li>
+                <li>Priority Boarding</li>
+                <li>Free Wi-Fi</li>
+            </ul>
+
+            <button>Rival the Competition</button>
+        </div>
+
+        <div class="tier premium">
+            <div class="badge">
+                <i class="fas fa-hat-wizard"></i>
+            </div>
+
+            <h2>Premium</h2>
+
+            <ul>
+                <li>Comfortable Seat</li>
+                <li>One free meal</li>
+                <li>Convenient Restroom Location</li>
+                <li>Basic Amenities</li>
+                <li>Standard Luggage</li>
+                <li>Priority Boarding</li>
+                <li>Free Wi-Fi</li>
+                <li>Complimentary Refreshments</li>
+                <li>Personalized Service</li>
+                <li>Exclusive Access</li>
+                <li>Enhanced Comfort</li>
+                <li>Large Lugggage</li>
+                <li>Complimentary Amenities</li>
+                <li>ABC</li>
+                <li>Test123</li>
+                <li>Testing23</li>
+                <li>Words</li>
+                <li>Hello World</li>
+                <li>More words</li>
+                <li>Even more words</li>
+            </ul>
+
+            <button>Become a Power User</button>
+        </div>
+
+    </div>
+
+    <a class="phone" href="tel:18005555555">
+        CALL 1-800-555-5555
+    </a>
+
+</body>
+</html>
