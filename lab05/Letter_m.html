@@ -9,7 +9,7 @@
 .i{background-color: black;
 display: inline-block;
 }
-.il,.ir{
+.il,.ir, .ii, .ib{
     background-color: white;
     display: inline-block;
     width:20px;
@@ -24,6 +24,29 @@ display: inline-block;
 .ir{ margin: 12px 10px  0px  0px;
 
 }
+.t {
+    position: relative;
+    width: 60px;
+    height: 72px;
+    vertical-align: top;
+}
+.t .ii {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 20px;
+    margin: 0;
+}
+
+.t .ib {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 20px;
+    height: 52px;
+    margin: 0;
+}
 
 </style>
 </head>
@@ -31,6 +54,10 @@ display: inline-block;
 <div class="i">
     <div class="il"></div>
     <div class="ir"></div>
+</div>
+<div class="i t">
+    <div class="ii"></div>
+    <div class="ib"></div>
 </div>
 
 </body>

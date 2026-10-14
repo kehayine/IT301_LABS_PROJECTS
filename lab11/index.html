@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoM</title>
+</head>
+<body>
+    <style>
+        #box {
+            background-color: blue;
+            color: white;
+            width: 150px;
+            height: 50px;
+            text-align: center;
+        }
+        #div {
+            width: 100%;
+            height: 70vh;
+        }
+    </style>
+    <button id="box">Click Me! 😊</button>
+    <div id="div"></div>
+    
+</body>
+<script>
+function myFunction(event) {
+        box.style.backgroundColor = "red";
+        box.textContent = "Ouch! 🤕";
+    }
+    function myFunction2(event) {
+            box.style.backgroundColor = "yellow";
+            box.style.color = 'black';
+            box.textContent = "Do not click! 😠";
+        }
+    function myFunction3(event) {
+            box.style.backgroundColor = "lightgreen";
+            box.style.color = 'black';
+            box.textContent = "Phew! 😌";
+        }
+    function myFunction4(event) {
+            box.style.backgroundColor = "pink";
+            box.style.color = 'white';
+            box.textContent = "Double trouble! 🤩";
+        }
+    function myFunction5(event) {
+            box.style.backgroundColor = "lightblue";
+            box.style.color = 'white';
+            box.textContent = "I see you! 👀";
+        }
+const box = document.getElementById('box');
+const div = document.getElementById('div');
+div.addEventListener('pointermove', myFunction5);
+box.addEventListener('click', myFunction);
+box.addEventListener('mouseover', myFunction2);
+box.addEventListener('mouseout', myFunction3);
+box.addEventListener('dblclick', myFunction4);
+
+</script>
+</html>
+
