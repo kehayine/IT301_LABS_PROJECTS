@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="../images/jmu.png" type="image/png">
+</head>
+<body>
+    <p id="result">Select a color</p>
+    <form action = "#">
+        <input type="radio" name="color" value="red"> Red <br>
+        <input type="radio" name="color" value="blue"> Blue <br>
+        <input type="radio" name="color" value="green"> Green <br>
+        <input type="radio" name="color" value="yellow"> Yellow <br>
+        <button type="button" id="btn">Select</button>
+    </form>
+    <script>
+        const btn = document.getElementById('btn');
+        btn.addEventListener('click', function() {
+            const Color = document.querySelector('[name=color]:checked');
+        document.getElementById('result').textContent = 'You selected ' + Color.value;
+        })
+    </script>
+</body>
+</html>

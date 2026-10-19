@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+</head>
+<body>
+    <h1>Basic Calculator</h1>
+    <form action = "#">
+        <p>Enter your name below:</p>
+        <input type="text" id="name" value=""> 
+        <button type="button" id="btn">Submit</button>
+    </form>
+    <p id="Greeting"></p>
+
+    <h2>Enter below:</h2>
+    <form action = "#">
+        <input type="number" id="num1" value=""> 
+        <input type="number" id="num2" value=""><br>
+        <input type="radio" id="add" name="operation">Add</input>
+        <input type="radio" name="operation" id="subtract">Subtract</input>
+        <input type="radio" id="multiply" name="operation">Multiply</input>
+        <input type="radio" id="divide" name="operation">Divide</input> <br>
+        <button type="button" id="calcbtn">Submit</button>
+    </form>
+    <p id="result">The result will be displayed here</p>
+    <button type="button" id="clear">Clear the form`</button>
+
+    <script>
+        const btn = document.getElementById('btn');
+        btn.addEventListener('click', function() {
+        const greet = document.getElementById('name').value;
+        document.getElementById('Greeting').textContent = 'Hello, ' + document.getElementById('name').value + '! Welcome to the basic calulator.';
+        })
+        const calcbtn = document.getElementById('calcbtn');
+        calcbtn.addEventListener('click', function() {
+            const num1 = Number(document.getElementById('num1').value);
+            const num2 = Number(document.getElementById('num2').value);
+            const operation = document.querySelector('input[name="operation"]:checked').id;
+            if (operation === 'add') {
+                document.getElementById('result').textContent = 'The result is ' + (num1 + num2);
+            } else if (operation === 'subtract') {
+                document.getElementById('result').textContent = 'The result is ' + (num1 - num2);
+            } else if (operation === 'multiply') {
+                document.getElementById('result').textContent = 'The result is ' + (num1 * num2);
+            } else if (operation === 'divide') {
+                document.getElementById('result').textContent = 'The result is ' + (num1 / num2);
+        }})
+        const clear = document.getElementById('clear');
+        clear.addEventListener('click', function() {
+            document.getElementById('num1').value = '';
+            document.getElementById('num2').value = '';
+            document.querySelector('input[name="operation"]:checked').checked = false;
+            document.getElementById('result').textContent = 'The result will be displayed here';
+        })
+
+    </script>
+</body>
+</html>
