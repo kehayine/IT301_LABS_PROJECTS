@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel with Nicholas Kehayias</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <!-- navbar info -->
+    <h1>Wander off the path with Nicholas Kehayias</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="reccomendations.html">Recommendations</a></li>
+        <li><a href="tips.html">Tips</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- the main content showcasing the places ive been and a quick image of them -->
+    <h2>Choose Your Tour</h2>
+    <h3>Hover over the images to see the destination</h3>
+    <div class="tour-grid">
+      <a id="parosCard" class="tour-card" href="destinations.html"><img src="images/301imgs/paros/IMG_0295.jpeg" alt="Paros"><p id="parosTitle" class="tour-title"></p></a>
+      <a id="valenciaCard" class="tour-card" href="destinations.html"><img src="images/301imgs/valencia/IMG_3263.JPG" alt="Valencia"><p id="valenciaTitle" class="tour-title"></p></a>
+      <a id="washingtonCard" class="tour-card" href="destinations.html"><img src="images/301imgs/washingtondc/IMG_5697.jpeg" alt="Washington"><p id="washingtonTitle" class="tour-title"></p></a>
+      <a id="sanJuanCard" class="tour-card" href="destinations.html"><img src="images/301imgs/sanjuan/IMG_0007.JPG" alt="San Juan"><p id="sanJuanTitle" class="tour-title"></p></a>
+      <a id="athensCard" class="tour-card" href="destinations.html"><img src="images/301imgs/athens/IMG_5416.jpeg" alt="Athens"><p id="athensTitle" class="tour-title"></p></a>
+      <a id="newYorkCard" class="tour-card" href="destinations.html"><img src="images/301imgs/nyc/IMG_1904.jpeg" alt="New York City"><p id="newYorkTitle" class="tour-title"></p></a>
+    </div>
+  </main>
+
+  <footer>
+    <!-- footer -->
+    <p>&copy; 2026 Nicholas Kehayias</p>
+    <p><a href="mailto:nicholas_kehayias@outlook.com">nicholas_kehayias@outlook.com</a> |
+      <a href="https://www.jmu.edu/">James Madison University</a></p>
+  </footer>
+
+  <script>
+    let parosCard = document.getElementById("parosCard");
+    let parosTitle = document.getElementById("parosTitle");
+    parosCard.addEventListener("mouseover", function() {
+      parosTitle.innerHTML = "Paros, Greece";
+      parosTitle.style.display = "block";
+    });
+    parosCard.addEventListener("mouseout", function() {
+      parosTitle.style.display = "none";
+    });
+
+    let valenciaCard = document.getElementById("valenciaCard");
+    let valenciaTitle = document.getElementById("valenciaTitle");
+    valenciaCard.addEventListener("mouseover", function() {
+      valenciaTitle.innerHTML = "Valencia, Spain";
+      valenciaTitle.style.display = "block";
+    });
+    valenciaCard.addEventListener("mouseout", function() {
+      valenciaTitle.style.display = "none";
+    });
+
+    let washingtonCard = document.getElementById("washingtonCard");
+    let washingtonTitle = document.getElementById("washingtonTitle");
+    washingtonCard.addEventListener("mouseover", function() {
+      washingtonTitle.innerHTML = "Washington, D.C.";
+      washingtonTitle.style.display = "block";
+    });
+    washingtonCard.addEventListener("mouseout", function() {
+      washingtonTitle.style.display = "none";
+    });
+
+    let sanJuanCard = document.getElementById("sanJuanCard");
+    let sanJuanTitle = document.getElementById("sanJuanTitle");
+    sanJuanCard.addEventListener("mouseover", function() {
+      sanJuanTitle.innerHTML = "San Juan, Puerto Rico";
+      sanJuanTitle.style.display = "block";
+    });
+    sanJuanCard.addEventListener("mouseout", function() {
+      sanJuanTitle.style.display = "none";
+    });
+
+    let athensCard = document.getElementById("athensCard");
+    let athensTitle = document.getElementById("athensTitle");
+    athensCard.addEventListener("mouseover", function() {
+      athensTitle.innerHTML = "Athens, Greece";
+      athensTitle.style.display = "block";
+    });
+    athensCard.addEventListener("mouseout", function() {
+      athensTitle.style.display = "none";
+    });
+
+    let newYorkCard = document.getElementById("newYorkCard");
+    let newYorkTitle = document.getElementById("newYorkTitle");
+    newYorkCard.addEventListener("mouseover", function() {
+      newYorkTitle.innerHTML = "New York City";
+      newYorkTitle.style.display = "block";
+    });
+    newYorkCard.addEventListener("mouseout", function() {
+      newYorkTitle.style.display = "none";
+    });
+  </script>
+</body>
+</html>

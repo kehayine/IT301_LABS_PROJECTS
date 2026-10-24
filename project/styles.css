@@ -1,0 +1,310 @@
+body {
+  font-family: "Segoe UI Light", "Segoe UI", Arial, sans-serif;
+  font-weight: normal;
+  margin: 0;
+  padding: 20px;
+}
+
+header,
+main,
+footer {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+header {
+  background-color: #004466;
+  color: white;
+  text-align: center;
+}
+
+h1,
+nav {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+h1 {
+  font-size: 52px;
+  font-weight: normal;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 45px;
+  font-weight: normal;
+  line-height: 1.1;
+  color: maroon;
+}
+
+main {
+  background-color: #f0f0f0;
+}
+
+footer {
+  background-color: #ccc;
+  text-align: center;
+}
+
+footer a {
+  color: #004466;
+}
+
+nav ul {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  background-color: #006699;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+img {
+  max-width: 500px;
+  width: 100%;
+  display: block;
+  margin: 20px auto;
+}
+
+.tour-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.tour-grid a {
+  width: 250px;
+}
+
+.tour-card {
+  text-align: center;
+  position: relative;
+}
+
+.tour-grid img {
+  width: 250px;
+  height: 170px;
+  margin: 0;
+}
+
+.tour-title {
+  display: none;
+  margin: 8px 0 0;
+  color: #004466;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  top: 170px;
+  left: 0;
+  width: 100%;
+}
+
+#about {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 40px;
+  min-height: 500px;
+}
+
+#about img {
+  width: 250px;
+  height: 300px;
+}
+
+#words {
+  width: 40%;
+}
+
+#words h2 {
+  font-size: 32px;
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+#words p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.tips,
+#recommendations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  background-color: #f0f0f0;
+  padding: 25px;
+}
+
+.tips {
+  gap: 35px;
+}
+
+.tip-column,
+.recommendation {
+  background-color: #d9edf7;
+  color: #004466;
+  width: 275px;
+  padding: 25px;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+}
+
+.tip-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.tip-column h2,
+.recommendation h2 {
+  margin-top: 0;
+  font-size: 23px;
+  font-weight: normal;
+}
+
+.tip-column ul {
+  padding: 0;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.tip-column li {
+  padding: 8px 0;
+  border-bottom: 1px solid #8ab6c9;
+}
+
+.tip-column li:last-child {
+  border-bottom: none;
+}
+
+.recommendation {
+  padding: 20px;
+}
+
+.recommendation h2 {
+  color: #004466;
+  font-size: 25px;
+}
+
+.recommendation p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.recommendation-form {
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+}
+
+.recommendation-form label,
+.recommendation-form input,
+.recommendation-form textarea {
+  display: block;
+  margin: 8px 0;
+}
+
+.recommendation-form input,
+.recommendation-form textarea {
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+}
+
+.recommendation-form textarea {
+  width: 100%;
+  min-height: 100px;
+}
+
+.recommendation-form button {
+  padding: 10px 15px;
+}
+
+#parentone {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+
+#right {
+  background-color: beige;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.place {
+  width: 100%;
+}
+
+.place h2 {
+  margin: 10px;
+  font-size: 28px;
+  font-weight: normal;
+}
+
+.place p {
+  margin: 10px;
+  font-size: 18px;
+}
+
+.place-images {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.place-images img {
+  padding: 1px;
+  display: flex;
+  flex-grow: 1;
+  height: 150px;
+  width: auto;
+  margin: 0;
+}
+/* My media queries adjust the layout for smaller screens. */
+
+@media (max-width: 850px) {
+  .tips {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 800px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li a {
+    display: block;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  #about {
+    flex-direction: column;
+  }
+
+  #words {
+    width: 90%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 500px) {
+  main p {
+    text-align: center;
+  }
+}
