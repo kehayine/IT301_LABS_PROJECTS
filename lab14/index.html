@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises and Fetch API</title>
+</head>
+<body>
+    <h1>Profile</h1>
+    <p>Generate a profile</p>
+    <script>
+        //create a promise
+        let createImage = async() =>{
+            let p = await fetch('https://randomuser.me/api/');
+            p = await p.json();
+            console.log(p);
+            let image = p.results[0].picture.large;
+            let personfname = p.results[0].name.first;
+            let personlname = p.results[0].name.last;
+            let email = p.results[0].email;
+            let phone = p.results[0].phone;
+            fnamebox.textContent = "First Name: " + personfname;
+            lnamebox.textContent = "Last Name: " + personlname;
+            emailbox.textContent = "Email: " + email;
+            phonebox.textContent = "Phone: " + phone;
+            pageimg.src = image;
+            pageimg.alt = "cute cat";
+            pageimg.style.width = "400px";
+            document.body.appendChild(pageimg);
+            document.body.appendChild(fnamebox);
+            document.body.appendChild(lnamebox);
+            document.body.appendChild(emailbox);
+            document.body.appendChild(phonebox);
+        }
+        let pageimg = document.createElement('img');
+        let fnamebox = document.createElement('p');
+        let lnamebox = document.createElement('p');
+        let emailbox = document.createElement('p');
+        let phonebox = document.createElement('p');
+        let refresh = document.createElement('button');
+        refresh.type = "button";
+        let form = document.createElement('form');
+        refresh.textContent = "Click to Generate a New Profile";
+        refresh.addEventListener('click', createImage);
+
+
+        form.action = "#";
+        form.appendChild(refresh);
+        document.body.appendChild(form);
+
+
+        createImage();
+    </script>
+</body>
+</html>

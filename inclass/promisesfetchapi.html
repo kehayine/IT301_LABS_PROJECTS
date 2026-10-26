@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises and Fetch API</title>
+</head>
+<body>
+    <h1>Cute Cat Image</h1>
+    <p>Welcome to my page that contains a picture of a cute cat</p>
+    <script>
+        //create a promise
+        let createImage = async() =>{
+            let p = await fetch('https://api.thecatapi.com/v1/images/search');
+            p = await p.json();
+            console.log(p);
+            let image = p[0].url;
+            pageimg.src = image;
+            pageimg.alt = "cute cat";
+            pageimg.style.width = "400px";
+            document.body.appendChild(pageimg);
+        }
+        let pageimg = document.createElement('img');
+        let refresh = document.createElement('button');
+        refresh.type = "button";
+        let form = document.createElement('form');
+        refresh.textContent = "Click to Refresh Cat Image";
+        refresh.addEventListener('click', createImage);
+
+
+        form.action = "#";
+        form.appendChild(refresh);
+        document.body.appendChild(form);
+
+
+        createImage();
+
+
+
+        /*let p = new Promise ((resolve, reject) => {
+            const grade = 90;
+            if (grade > 50) {resolve('passed the class :)')}
+            else {reject('failed the class :(')};
+            });
+            /*console.log(p);
+            p.then(value => console.log(value));
+            */
+
+            //consume promises
+            /*p.then(
+                (success) => console.log(success),
+                (reason) => console.log(reason)
+            )*/
+           // consume promise using await
+           /*
+           const getGrade = async() => {
+            try{
+                const success = await p;
+                console.log(success);
+            }
+            catch(error){
+                console.log(error);
+            }
+           }
+           getGrade();
+           */
+          
+
+
+
+    </script>
+</body>
+</html>
