@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts </title>
+
+    <style>
+       body {
+          background-color: #f0f2f5;
+          font-family: Helvetica, Arial, sans-serif;
+       }
+
+       form {
+          min-height: 180px;
+       }
+
+       article, form {
+          background-color: #ffffff;
+          border-radius: 8px;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+          padding: 12px 16px;
+          margin-bottom: 16px;
+          max-width: 680px;
+          margin-left: auto;
+          margin-right: auto;
+       }
+
+       h2 {
+          color: #050505;
+          font-size: 0.9375rem;
+          font-weight: 600;
+          margin: 0 0 4px 0;
+       }
+
+       p {
+          color: #050505;
+          font-size: 0.9375rem;
+          line-height: 1.3333;
+          margin: 8px 0 0 0;
+       }
+    </style>
+</head>
+
+<body>
+<h1> Welcome to my Posts page! </h1>
+
+    <form action="#">
+
+        <label for="userID">Select User:</label>
+        <select id="userID">
+            <option value="">--Please choose an option--</option>
+            <option value="1">User 1</option>
+            <option value="2">User 2</option>
+            <option value="3">User 3</option>
+            <option value="4">User 4</option>
+            <option value="5">User 5</option>
+            <option value="6">User 6</option>
+            <option value="7">User 7</option>
+        </select>
+
+        <button type="button" id="filterBtn">Filter</button>
+
+        <br><br>
+
+        <label for="displayUserID">Enter User ID:</label>
+        <input type="number" id="displayUserID" min="1" max="10">
+
+        <button type="button" id="displayUserBtn">Display User Posts</button>
+
+        <br><br>
+
+        <label for="postID">Enter Post ID:</label>
+        <input type="number" id="postID" min="1" max="100">
+
+        <button type="button" id="findBtn">Find</button>
+
+    </form>
+
+    <script>
+      let filterButton = document.getElementById("filterBtn");
+      let filterUNumber = document.getElementById("userID");
+      let displayUserButton = document.getElementById("displayUserBtn");
+      let displayUserNumber = document.getElementById("displayUserID");
+      let findButton = document.getElementById("findBtn");
+      let findPostNumber = document.getElementById("postID");
+      let createPosts = async () => {
+         let response = await fetch('https://jsonplaceholder.typicode.com/posts');
+         let posts = await response.json();
+         let postArray = [];
+
+         for (let i = 0; i < posts.length; i++) {
+            let nestedPosts = [];
+            nestedPosts.push(posts[i].title);
+            nestedPosts.push(posts[i].body);
+            nestedPosts.push(posts[i].id);
+            nestedPosts.push(posts[i].userId);
+            postArray.push(nestedPosts);
+            
+         }
+
+         for (let i = 0; i < postArray.length; i++) {
+            let article = document.createElement('article');
+            let postTitle = document.createElement('h2');
+            let postID = document.createElement('p');
+            let postUserID = document.createElement('p');
+            let postBody = document.createElement('p');
+            postTitle.textContent = postArray[i][0];
+            postID.textContent = "Post ID: " + postArray[i][2];
+            postUserID.textContent = "User ID: " + postArray[i][3];
+            postBody.textContent = postArray[i][1];
+            article.appendChild(postTitle);
+            article.appendChild(postID);
+            article.appendChild(postUserID);
+            article.appendChild(postBody);
+            document.body.appendChild(article);
+         }
+         console.table(postArray);
+      };
+      createPosts();
+      let createPostsFilteredByUser = async (userNumber) => {
+         let response = await fetch('https://jsonplaceholder.typicode.com/posts');
+         let posts = await response.json();
+         let postArray = [];
+
+         for (let i = 0; i < posts.length; i++) {
+            let nestedPosts = [];
+            nestedPosts.push(posts[i].title);
+            nestedPosts.push(posts[i].body);
+            nestedPosts.push(posts[i].id);
+            nestedPosts.push(posts[i].userId);
+            postArray.push(nestedPosts);
+            
+         }
+
+         for (let i = 0; i < postArray.length; i++) {
+            if (postArray[i][3] !== userNumber) {
+               continue;
+            }
+            let article = document.createElement('article');
+            let postTitle = document.createElement('h2');
+            let postID = document.createElement('p');
+            let postUserID = document.createElement('p');
+            let postBody = document.createElement('p');
+            postTitle.textContent = postArray[i][0];
+            postID.textContent = "Post ID: " + postArray[i][2];
+            postUserID.textContent = "User ID: " + postArray[i][3];
+            postBody.textContent = postArray[i][1];
+            article.appendChild(postTitle);
+            article.appendChild(postID);
+            article.appendChild(postUserID);
+            article.appendChild(postBody);
+            document.body.appendChild(article);
+         }
+         console.table(postArray);
+      };
+      let createPostsFilteredByPostID = async (postID) => {
+         let response = await fetch('https://jsonplaceholder.typicode.com/posts');
+         let posts = await response.json();
+         let postArray = [];
+
+         for (let i = 0; i < posts.length; i++) {
+            let nestedPosts = [];
+            nestedPosts.push(posts[i].title);
+            nestedPosts.push(posts[i].body);
+            nestedPosts.push(posts[i].id);
+            nestedPosts.push(posts[i].userId);
+            postArray.push(nestedPosts);
+            
+         }
+
+         for (let i = 0; i < postArray.length; i++) {
+            if (postArray[i][2] !== postID) {
+               continue;
+            }
+            let article = document.createElement('article');
+            let postTitle = document.createElement('h2');
+            let postIDElement = document.createElement('p');
+            let postUserID = document.createElement('p');
+            let postBody = document.createElement('p');
+            postTitle.textContent = postArray[i][0];
+            postIDElement.textContent = "Post ID: " + postArray[i][2];
+            postUserID.textContent = "User ID: " + postArray[i][3];
+            postBody.textContent = postArray[i][1];
+            article.appendChild(postTitle);
+            article.appendChild(postIDElement);
+            article.appendChild(postUserID);
+            article.appendChild(postBody);
+            document.body.appendChild(article);
+         }
+         console.table(postArray);
+      };
+
+    filterButton.addEventListener("click", function() {
+      if (filterUNumber.value == "1") {
+         document.querySelectorAll('article').forEach((article) => {
+            article.remove();
+         });
+         
+         createPostsFilteredByUser(1);
+      } 
+      else if (filterUNumber.value == "2") {
+         document.querySelectorAll('article').forEach((article) => {
+            article.remove();
+         });
+         createPostsFilteredByUser(2);
+      }
+      else if (filterUNumber.value == "3") {
+         document.querySelectorAll('article').forEach((article) => {
+            article.remove();
+         });
+         createPostsFilteredByUser(3);
+      }
+      else if (filterUNumber.value == "4") {
+         document.querySelectorAll('article').forEach((article) => {
+            article.remove();
+         });
+         createPostsFilteredByUser(4);
+      }
+      else if (filterUNumber.value == "5") {
+         document.querySelectorAll('article').forEach((article) => {
+            article.remove();
+         });
+         createPostsFilteredByUser(5);
+      }
+      else if (filterUNumber.value == "6") {
+         document.querySelectorAll('article').forEach((article) => {
+            article.remove();
+         });
+         createPostsFilteredByUser(6);
+      }
+      else if (filterUNumber.value == "7") {
+         document.querySelectorAll('article').forEach((article) => {
+            article.remove();
+         });
+         createPostsFilteredByUser(7);
+      }
+   });
+   displayUserButton.addEventListener("click", function() {
+      if (displayUserNumber.value == "1") {
+         document.querySelectorAll('article').forEach((article) => {
+            article.remove();
+         });
+         
+         createPostsFilteredByUser(1);
+      } 
+      else if (displayUserNumber.value == "2") {
+         document.querySelectorAll('article').forEach((article) => {
+            article.remove();
+         });
+         createPostsFilteredByUser(2);
+      }
+      else if (displayUserNumber.value == "3") {
+         document.querySelectorAll('article').forEach((article) => {
+            article.remove();
+         });
+         createPostsFilteredByUser(3);
+      }
+      else if (displayUserNumber.value == "4") {
+         document.querySelectorAll('article').forEach((article) => {
+            article.remove();
+         });
+         createPostsFilteredByUser(4);
+      }
+      else if (displayUserNumber.value == "5") {
+         document.querySelectorAll('article').forEach((article) => {
+            article.remove();
+         });
+         createPostsFilteredByUser(5);
+      }
+      else if (displayUserNumber.value == "6") {
+         document.querySelectorAll('article').forEach((article) => {
+            article.remove();
+         });
+         createPostsFilteredByUser(6);
+      }
+      else if (displayUserNumber.value == "7") {
+         document.querySelectorAll('article').forEach((article) => {
+            article.remove();
+         });
+         createPostsFilteredByUser(7);
+      }
+  });
+  findButton.addEventListener("click", function() {
+      document.querySelectorAll('article').forEach((article) => {
+            article.remove();
+         });
+      createPostsFilteredByPostID(Number(findPostNumber.value));
+  });
+    
+      
+    </script>
+
+</body>
+</html>

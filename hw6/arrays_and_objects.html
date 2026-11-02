@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays and Objects</title>
+</head>
+<body>
+    <script src="data.js"></script>
+    <script>
+    
+        
+/**********************************************
+Q1. Accessing Object Properties
+Print the name of the first student in the array and their History grade.
+Your output should look like this:
+The name of the first student is: Amina and history grade is: 88
+***********************************************************/
+let firststudentandhistorygrade = document.createElement('p');
+firststudentandhistorygrade.textContent = "The name of the first student is: " + students[0].name + " and history grade is: " + students[0].grades.history;
+document.body.appendChild(firststudentandhistorygrade);
+
+
+/******************************************
+Q2. Displaying Student Information
+Print the name of each student and their grades for all four courses: Math, English, Science, and History.
+Your output should follow this format:
+Name: Amina 
+            math:85,
+            english:92 ,
+            science: 78,
+            history:88
+Name: Carlos 
+            math:90,
+            english:88 ,
+            science: 95,
+            history:82
+Name: Li Wei 
+            math:70,
+            english:75 ,
+            science: 80,
+            history:90
+Name: Fatima 
+            math:95,
+            english:85 ,
+            science: 92,
+            history:87
+Name: John 
+            math:60,
+            english:70 ,
+            science: 68,
+            history:65
+Name: Sofia 
+            math:88,
+            english:91 ,
+            science: 85,
+            history:93
+*******************************************/
+for (let i = 0; i < students.length; i++) {
+    let studentInfo = document.createElement('p');
+    studentInfo.textContent = "Name: " + students[i].name + 
+        "            math: " + students[i].grades.math + "," +
+        "            english: " + students[i].grades.english + "," +
+        "            science: " + students[i].grades.science + "," +
+        "            history: " + students[i].grades.history;
+    document.body.appendChild(studentInfo);
+}
+
+/*************************
+Q3. Calculating Student GPAs
+Calculate the GPA for each student by finding the average of their grades across all courses. Print each student's name and GPA in the console.
+Your output should look like this:
+
+Name = Amina GPA = 85.75
+Name = Carlos GPA = 88.75
+Name = Li Wei GPA = 78.75
+Name = Fatima GPA = 89.75
+Name = John GPA = 65.75
+Name = Sofia GPA = 89.25
+**************************/
+for (let i = 0; i < students.length; i++) {
+    let studentGPA = document.createElement('p');
+    studentGPA.textContent = "Name: " + students[i].name +  " GPA: " + ((students[i].grades.math + students[i].grades.english + students[i].grades.science + students[i].grades.history) / courses.length);
+    document.body.appendChild(studentGPA);
+}
+
+/******************************************
+Q4. Adding a New Student
+Add a new student named Nina to the students array with the following information:
+
+name: Nina 
+age: 21
+grades:
+    math: 82
+    english: 87 
+    science: 90 
+    history: 85 
+
+Then, use the array's length property to print the total number of students.
+Your output should look like this:
+My array has 7 students 
+
+*******************************************/
+students.push({
+    name: "Nina",
+    age: 21,
+    grades: {
+        math: 82,
+        english: 87,
+        science: 90,
+        history: 85
+    }
+});
+/*******************************************
+Q5. Adding a New Course
+Add a new course named art to each student's grades object.
+Then, print the name of each student and the names of all their courses, including Art.
+------------------------------------------------------------------------------*/
+courses.push("art");
+
+for (let i = 0; i < students.length; i++) {
+    let studentCourses = document.createElement('p');
+    studentCourses.textContent = "Name: " + students[i].name +  " Courses: " + courses.join(", ");
+    document.body.appendChild(studentCourses);
+}
+
+/***************************************
+Q6. Finding and Updating a Student
+Find the student named John using an appropriate array method. Increase his Math grade by 10 points.
+Print John's updated Math grade in the console.
+Your output should look like this:
+Current Math grade for John = 70
+************************************/
+const student = students.find(text => text.name === "John");
+if (student) {
+    student.grades.math += 10;
+    console.log("Current Math grade for John = " + student.grades.math);
+}
+
+
+/***********************************************
+ Q7. Calculating Course Averages
+Calculate the average grade for each course across all students. Print the name of each course and its average grade in the console.
+**************************************************/
+for (let j = 0; j < courses.length; j++) {
+            let overallGPA = document.createElement('p');
+            let course = courses[j];
+            let total = 0;
+            for (let k = 0; k < students.length; k++) {
+                total += students[k].grades[course];
+            }
+            let average = total / students.length;
+            overallGPA.textContent = "Course GPA: ";
+            overallGPA.textContent += course + ": " + average;
+            document.body.appendChild(overallGPA);
+        }
+
+
+    </script>
+</body>
+</html>
