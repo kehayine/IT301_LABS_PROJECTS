@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #password-rules {
+        display: none;
+    }
+    .rule.valid {
+        color: green;
+    }
+    .rule.invalid {
+        color: red;
+    }
+</style>
+</head>
+<body>
+    <form>
+        <label for="name">Name: </label>
+        <input type="text" id="name" name="name"><br>
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email"><br>
+        <label for="password">Password: </label>
+        <input type="password" id="password" name="password"><br>
+        <div  class="rules" id="password-rules">
+            <div id="rule-length" class="rule">✖ At least 6 characters</div>
+            <div id="rule-special" class="rule">✖ Must include a special character (!@#$...)</div>
+            <div id="rule-uppercase" class="rule">✖ Must include an uppercase letter (A-Z)</div>
+        </div>
+        <button type="submit" id="submit">Submit</button>
+        <p id="name-message"></p>
+        <p id="emailerror"></p>
+        <p id="password-message"></p>
+    </form>
+    <script>
+        document.getElementById('password').addEventListener('input', function() {
+            const passwordRules = document.getElementById('password-rules');
+            passwordRules.style.display = 'block';
+            const password = document.getElementById('password').value;
+            const ruleLength = document.getElementById('rule-length');
+            const ruleSpecial = document.getElementById('rule-special');
+            const ruleUppercase = document.getElementById('rule-uppercase');
+            if (password.length >= 6) {
+                ruleLength.textContent = '✔ At least 6 characters';
+                ruleLength.classList.remove('invalid');
+                ruleLength.classList.add('valid');
+            } else {
+                ruleLength.classList.remove('valid');
+                ruleLength.classList.add('invalid');
+                ruleLength.textContent = '✖ At least 6 characters';
+            }
+            if (/[A-Z]/.test(password)) {
+                ruleUppercase.textContent = '✔ Must include an uppercase letter (A-Z)';
+                ruleUppercase.classList.remove('invalid');
+                ruleUppercase.classList.add('valid');
+            } else {
+                ruleUppercase.classList.remove('valid');
+                ruleUppercase.classList.add('invalid');
+                ruleUppercase.textContent = '✖ Must include an uppercase letter (A-Z)';
+            }
+            if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+                ruleSpecial.textContent = '✔ Must include a special character (!@#$...)';
+                ruleSpecial.classList.remove('invalid');
+                ruleSpecial.classList.add('valid');
+            } else {
+                ruleSpecial.classList.remove('valid');
+                ruleSpecial.classList.add('invalid');
+                ruleSpecial.textContent = '✖ Must include a special character (!@#$...)';
+            }
+        });
+        document.getElementById('submit').addEventListener('click', function() {
+            event.preventDefault()
+            const password = document.getElementById('password').value;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            let emailgood = false;
+            let passwordgood = false;
+            let namegood = false;
+            if (password.length < 1) {
+                document.getElementById('password-message').textContent = 'Password is required.';
+            }
+            if (email.length < 1) {
+                document.getElementById('emailerror').textContent = 'Email is required.';
+            }
+            if (name.length < 1) {
+                document.getElementById('name-message').textContent = 'Name is required.';
+            }
+            if (password.length >= 1) {
+                document.getElementById('password-message').textContent = 'Success! You entered a password';
+                passwordgood = true;
+
+            }
+            if (email.length >= 1) {
+                document.getElementById('emailerror').textContent = 'Success! You entered an email';
+                emailgood = true;
+            }
+            if (name.length >= 1) {
+                document.getElementById('name-message').textContent = 'Success! You entered a name';
+                namegood = true;
+            }
+            if (emailgood && passwordgood && namegood) {
+                const clearButton = document.createElement('button');
+                clearButton.type = 'button';
+                clearButton.textContent = 'Clear Form';
+                clearButton.addEventListener('click', function() {
+                    document.querySelector('form').reset();
+                });
+                document.querySelector('form').append(clearButton);
+            }
+        });
+    </script>
+</body>
+</html>
