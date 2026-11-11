@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<h1>Student Database</h1>
+<input type="text" id="name" placeholder="Enter student name">
+<input type="text" id="grade" placeholder="Enter student grade">
+<button type="button" id="push">Push Data</button>
+<button type="button" id="get">Get Data</button>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+<script>
+
+// Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyCvjOxINIhjU0zQIF8vhV4OAXuGn94kFYg",
+    authDomain: "studentdatabase-34193.firebaseapp.com",
+    projectId: "studentdatabase-34193",
+    storageBucket: "studentdatabase-34193.firebasestorage.app",
+    messagingSenderId: "1074159969530",
+    appId: "1:1074159969530:web:a74b3383591f9743c91543"
+};
+
+// Connect to Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Connect to Firestore
+const db = firebase.firestore();
+const name = document.getElementById("name");
+const grade = document.getElementById("grade");
+const push = document.getElementById("push");
+const get = document.getElementById("get");
+push.addEventListener('click', async function(event) {
+
+    try {
+
+        const docRef = await db.collection('students').add({
+            name: name.value, // assuming you declared name and have user name input inside it
+            grade: grade.value, //assuming you declared grade and have grade retrived by user inside it
+            pass: grade.value > 50 ? 'pass' : 'fail'
+        });
+
+        alert('Your data saved successfully');
+
+    } catch (error) {
+
+        console.error("Firebase error:", error);
+        alert("Could not save your data.");
+
+    }
+
+});
+get.addEventListener('click', async function(event) {
+
+    try {
+
+        const snapshot = await db.collection('students').get();
+
+        snapshot.forEach(doc => {
+
+            console.log(`Name: ${doc.data().name}
+Grade: ${doc.data().grade}
+Pass: ${doc.data().pass}`);
+
+        });
+
+    } catch (error) {
+
+        console.error("Firebase error:", error);
+        alert("Could not retrieve your data.");
+
+    }
+
+});
+</script>
+</body>
+</html>
